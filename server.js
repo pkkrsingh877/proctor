@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const path = require('path');
+const port = process.env.PORT || 9000;
 
 app.use(express.urlencoded({ extended: true }));
 
