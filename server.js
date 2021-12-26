@@ -23,12 +23,17 @@ app.engine('ejs', ejsMate);
 app.set("views", path.join(__dirname, "views"));
 
 //setting up mongodb
-try {
-    mongoose.connect('mongodb://localhost:27017/proctor')
-    console.log("DB Connected!");
-} catch (err) {
-    console.log("DB Connection Failed!");
-};
+mongoose.connect('mongodb://localhost:27017/proctor', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  }
+)
+.then(() => {
+    console.log("DB Connection Successful!")
+})
+.catch((error) => {
+    console.log(error);
+});
 
 app.get('/', (req, res) => {
     res.render('index');
