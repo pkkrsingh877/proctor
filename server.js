@@ -6,6 +6,15 @@ const port = process.env.PORT || 9000;
 const ejs = require('ejs');
 const ejsMate = require('ejs-mate');
 const Question = require('./models/questions');
+const morgan = require('morgan');
+
+//setting routes up
+const practiceRoutes = require('./routes/practice');
+app.use('/practice', practiceRoutes);
+
+//middlewares
+app.use(morgan('tiny'));
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 //setting view engine
@@ -20,14 +29,6 @@ try {
 } catch (err) {
     console.log("DB Connection Failed!");
 };
-
-app.get('/practice/cs', (req, res) => {
-    res.render('practice/cs');
-});
-
-app.get('/practice/maths', (req, res) => {
-    res.render('practice/maths');
-});
 
 app.get('/', (req, res) => {
     res.render('index');
