@@ -5,12 +5,12 @@ const path = require('path');
 const port = process.env.PORT || 9000;
 const ejs = require('ejs');
 const ejsMate = require('ejs-mate');
-
+const Question = require('./models/questions');
 app.use(express.urlencoded({ extended: true }));
 
 //setting view engine
 app.set('view engine', "ejs");
-app.set('engine', ejsMate);
+app.engine('ejs', ejsMate);
 app.set("views", path.join(__dirname, "views"));
 
 //setting up mongodb
@@ -20,19 +20,6 @@ try {
 } catch (err) {
     console.log("DB Connection Failed!");
 };
-
-const questionSchema = new mongoose.Schema({
-    question: {
-        type: String,
-        required: [true, 'Please, Enter the Question!']
-    },
-    answer: {
-        type: String,
-        required: [true, 'Please, Enter the Answer!']
-    }
-});
-
-
 
 app.get('/practice/cs', (req, res) => {
     res.render('practice/cs');
