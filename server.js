@@ -33,6 +33,7 @@ mongoose.connect('mongodb://localhost:27017/proctor', {
 })
 .catch((error) => {
     console.log(error);
+    console.log("DB Connection Failed!");
 });
 
 app.get('/', (req, res) => {
