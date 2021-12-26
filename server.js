@@ -18,8 +18,29 @@ try {
     console.log("DB Connection Failed!");
 };
 
+const questionSchema = new mongoose.Schema({
+    question: {
+        type: String,
+        required: [true, 'Please, Enter the Question!']
+    },
+    answer: {
+        type: String,
+        required: [true, 'Please, Enter the Answer!']
+    }
+});
+
+
+
+app.get('/practice/cs', (req, res) => {
+    res.render('practice/cs');
+});
+
+app.get('/practice/maths', (req, res) => {
+    res.render('practice/maths');
+});
+
 app.get('/', (req, res) => {
-    res.send('No problems here!');
+    res.render('index');
 });
 
 app.listen(port, () => {
