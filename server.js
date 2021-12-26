@@ -3,11 +3,14 @@ const app = express();
 const mongoose = require('mongoose');
 const path = require('path');
 const port = process.env.PORT || 9000;
+const ejs = require('ejs');
+const ejsMate = require('ejs-mate');
 
 app.use(express.urlencoded({ extended: true }));
 
 //setting view engine
 app.set('view engine', "ejs");
+app.set('engine', ejsMate);
 app.set("views", path.join(__dirname, "views"));
 
 //setting up mongodb
