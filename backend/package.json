@@ -1,0 +1,29 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "This is backend to handle data coming from rock paper scissors frontend",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pkkrsingh877/proctor.git"
+  },
+  "keywords": [
+    "Rock",
+    "Paper",
+    "Scissors"
+  ],
+  "author": "Prabhat Kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pkkrsingh877/proctor/issues"
+  },
+  "homepage": "https://github.com/pkkrsingh877/proctor#readme",
+  "dependencies": {
+    "express": "^4.21.1",
+    "socket.io": "^4.8.0"
+  }
+}
